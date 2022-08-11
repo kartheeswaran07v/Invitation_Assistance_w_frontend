@@ -6,13 +6,13 @@
 
   <form action="" method="POST">
     <div class="row">
-      <div class="col">
+      <div class="col-sm-3">
         {{form.hidden_tag()}} <!-- important tag-->
         {{ form.area }}{{ form.submit }}
       </div>
-      <div class='col ah'><a href="{{url_for('cover')}}">Home</a></div>
-      <div class='col ah'><a href="{{url_for('cover')}}">Remaining</a></div>
-      <div class='col ah'><a href="{{url_for('cover_done')}}">Done</a></div>
+      <div class='col-sm-3 ah'><a href="{{url_for('cover')}}">Home</a></div>
+      <div class='col-sm-3 ah'><a href="{{url_for('cover')}}">Remaining</a></div>
+      <div class='col-sm-3 ah'><a href="{{url_for('cover_done')}}">Done</a></div>
     </div>
   </form>
 
