@@ -1,0 +1,37 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <form action="" method="POST">
+    {{form.hidden_tag()}} <!-- important tag-->
+    <div class="row">
+      <div class="col header">
+
+        {{ form.area }}{{ form.submit }}
+      </div>
+      <div class='col ah'><a href="{{url_for('cover')}}">Home</a></div>
+      <div class='col ah'><a href="{{url_for('cover')}}">Remaining</a></div>
+      <div class='col ah'><a href="{{url_for('cover_done')}}">Done</a></div>
+    </div>
+  </form>
+
+
+  {% for i in html : %}
+  {% if not i.invitation_completed %}
+    <div class="row">
+      <div class="col-3">{{ i.name }}</div>
+      <div class="col-3">{{ i.address }}</div>
+      {% if i.dress %}
+          <div class="col-3"><img src="{{ url_for('static', filename='hawaiian-shirt.png')}}" alt=""></div>
+      {% else %}
+          <div class="col-3"><p>---</p></div>
+      {% endif %}
+      <div class="col-3"><a href="{{url_for('done', invitee_id=i.id, area=i.address)}}">Done</a></div>
+    </div>
+  {% endif %}
+  {% endfor %}
+
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <form action="" method="POST">
+    <div class="row">
+      <div class="col">
+        {{form.hidden_tag()}} <!-- important tag-->
+        {{ form.area }}{{ form.submit }}
+      </div>
+      <div class='col ah'><a href="{{url_for('cover')}}">Home</a></div>
+      <div class='col ah'><a href="{{url_for('cover')}}">Remaining</a></div>
+      <div class='col ah'><a href="{{url_for('cover_done')}}">Done</a></div>
+    </div>
+  </form>
+
+
+
+{% include "footer.html" %}
+{% endblock %}
